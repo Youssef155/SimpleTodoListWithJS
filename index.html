@@ -17,21 +17,26 @@
 </head>
 
 <body>
+    <h1 class="text-center mt-5">Todo List App</h1>
     <section class="col-lg-6 offset-lg-3 pt-5">
+
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Task</label>
-            <input type="email" class="form-control" id="title">
+            <input type="hidden" id="formType" value="create">
+            <input type="hidden" id="index" value="">
+            
+            <label for="" class="form-label">Task</label>
+            <input type="text" class="form-control" id="title">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
             <textarea class="form-control" id="text" rows="3"></textarea>
         </div>
-        <button id="sendBtn" class="btn btn-danger">Send</button>
+        <button id="sendBtn" class="btn btn-primary">Send</button>
     </section>
 
     <section class="col-lg-6 offset-lg-3 pt-5">
         <div class="" id="container">
-            
+
         </div>
     </section>
 

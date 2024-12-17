@@ -1,30 +1,39 @@
 var title = document.getElementById("title")
 var text = document.getElementById("text")
 var sendBtn = document.getElementById("sendBtn")
+var formType = document.getElementById("formType")
+var currentIndex = document.getElementById("index")
 
 var tasks = []
 
-sendBtn.addEventListener("click", function() {
-    var task =  
+sendBtn.addEventListener("click", function () {
+    var task =
     {
         head: title.value,
         desc: text.value,
     }
 
-    tasks.push(task)
+    if(formType.value === 'create') {
+        tasks.push(task)
+    }else if(formType.value === 'update') {
+        tasks[currentIndex.value] = task
+    }
+    formReset()
     showData()
 })
 
 function showData() {
     var list = ``
-    for(var i=0; i<tasks.length; i++){
-        list += `<div class="d-flex p-2 bd-highlight justify-content-between text-center border border-primary rounded-3 mb-3">
-        <div class="head">`+`<p>`+tasks[i].head+`</p>`+`</div>`+`<div class="icons">
+    for (var i = 0; i < tasks.length; i++) {
+        list += 
+        `<div class="d-flex p-2 bd-highlight justify-content-between text-center border border-primary rounded-3 mb-3">
+            <div class="head">`+ `<p>` + tasks[i].head + `</p>` + `</div>` + 
+            `<div class="icons">
                 <i class="icon fa-regular fa-circle-check"></i>
-                <i class="icon fa-solid fa-pencil"></i>
-                <i class="icon fa-regular fa-circle-xmark" onclick="deleteRecord(`+i+`)"></i>
+                <i class="icon fa-solid fa-pencil" onclick="updateRecord(`+ i + `)"></i>
+                <i class="icon fa-regular fa-circle-xmark" onclick="deleteRecord(`+ i + `)"></i>
             </div>
-            </div>`
+        </div>`
 
         document.getElementById("container").innerHTML = list
     }
@@ -35,4 +44,15 @@ function deleteRecord(i) {
     showData()
 }
 
-showData()
+function updateRecord(i) {
+    title.value = tasks[i].head;
+    text.value = tasks[i].desc;
+    formType.value = 'update';
+    currentIndex.value = i;
+}
+
+function formReset() {
+    formType.value = "create"
+    title.value = "";
+    text.value = "";
+}
