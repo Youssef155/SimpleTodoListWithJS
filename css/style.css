@@ -26,6 +26,12 @@ h1 {
     color: #b3b3b3;
 }
 
+.done {
+    background-color: #006b38ff;
+    color: #ffffff;
+    text-decoration: line-through;
+}
+
 .icons {
     font-size: 20px;
     margin-right: 40px;
@@ -50,9 +56,4 @@ h1 {
 
 .border {
     color: #404040;
-}
-
-.done {
-    background-color: #006b38ff;
-    color: #ffffff;
 }
