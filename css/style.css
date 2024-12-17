@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.head {
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: 7px;
+}
+
+.icons {
+    font-size: 20px;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.fa-circle-check {
+    color: rgb(2, 220, 2);
+}
+
+.fa-circle-xmark {
+    color: red;
+}
+
+.icon {
+    padding: 5px;
+}
