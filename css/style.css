@@ -4,10 +4,26 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #101820ff;
+    color: #ffffff;
+}
+
+h1 {
+    color: #B3B3B3;
+}
+
+.btn {
+    background-color: #034188;
+    color: #ffffff;
+}
+
+
 .head {
     font-size: 20px;
     margin-left: 40px;
     margin-top: 7px;
+    color: #b3b3b3;
 }
 
 .icons {
@@ -17,13 +33,26 @@
 }
 
 .fa-circle-check {
-    color: rgb(2, 220, 2);
+    color: #00e700;
 }
 
 .fa-circle-xmark {
     color: red;
 }
 
+.fa-pencil {
+    color: #B3B3B3;
+}
+
 .icon {
     padding: 5px;
+}
+
+.border {
+    color: #404040;
+}
+
+.done {
+    background-color: #006b38ff;
+    color: #ffffff;
 }

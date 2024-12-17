@@ -13,9 +13,9 @@ sendBtn.addEventListener("click", function () {
         desc: text.value,
     }
 
-    if(formType.value === 'create') {
+    if (formType.value === 'create') {
         tasks.push(task)
-    }else if(formType.value === 'update') {
+    } else if (formType.value === 'update') {
         tasks[currentIndex.value] = task
     }
     formReset()
@@ -25,11 +25,11 @@ sendBtn.addEventListener("click", function () {
 function showData() {
     var list = ``
     for (var i = 0; i < tasks.length; i++) {
-        list += 
-        `<div class="d-flex p-2 bd-highlight justify-content-between text-center border border-primary rounded-3 mb-3">
-            <div class="head">`+ `<p>` + tasks[i].head + `</p>` + `</div>` + 
+        list +=
+            `<div class="d-flex p-2 bd-highlight justify-content-between text-center border rounded-3 mb-3">
+            <div class="head">`+ `<p>` + tasks[i].head + `</p>` + `</div>` +
             `<div class="icons">
-                <i class="icon fa-regular fa-circle-check"></i>
+                <i class="icon fa-regular fa-circle-check onclick="markCompleted(`+ i + `)"></i>
                 <i class="icon fa-solid fa-pencil" onclick="updateRecord(`+ i + `)"></i>
                 <i class="icon fa-regular fa-circle-xmark" onclick="deleteRecord(`+ i + `)"></i>
             </div>
