@@ -32,11 +32,13 @@
             <input type="hidden" id="formType" value="create">
             <input type="hidden" id="index" value="">
             <label for="" class="form-label">Task</label>
-            <input type="text" class="form-control bg-secondary text-white" id="title">
+            <input oninput="validateTaskTitle()" type="text" class="form-control bg-secondary text-white" id="title">
+            <p class="danger d-none" id="wrongTitle">Invalid title it should start with capital letter and maxinum length is 6 characters.</p>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea class="form-control bg-secondary text-white" id="text" rows="3"></textarea>
+            <textarea oninput="validateTaskDesc()" class="form-control bg-secondary text-white" id="text" rows="3"></textarea>
+            <p class="danger d-none" id="wrongDesc">Invalid description it should start with capital letter and minimum length is 6 characters.</p>
         </div>
         <button id="sendBtn" class="btn">Send</button>
     </section>

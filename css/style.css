@@ -57,3 +57,11 @@ h1 {
 .border {
     color: #404040;
 }
+
+d-none {
+    display: none;
+}
+
+.danger {
+    color: red;
+}

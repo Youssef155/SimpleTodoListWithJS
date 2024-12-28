@@ -8,20 +8,22 @@ var search = document.getElementById("search")
 var tasks = []
 
 sendBtn.addEventListener("click", function () {
-    var task =
-    {
-        head: title.value,
-        desc: text.value,
-        completed: false
-    }
+    if (validateTaskTitle() == true && validateTaskDesc() == true) {
+        var task =
+        {
+            head: title.value,
+            desc: text.value,
+            completed: false
+        }
 
-    if (formType.value === 'create') {
-        tasks.push(task)
-    } else if (formType.value === 'update') {
-        tasks[currentIndex.value] = task
+        if (formType.value === 'create') {
+            tasks.push(task)
+        } else if (formType.value === 'update') {
+            tasks[currentIndex.value] = task
+        }
+        formReset()
+        showData(tasks)
     }
-    formReset()
-    showData(tasks)
 })
 
 // function showData() {
@@ -76,29 +78,63 @@ function formReset() {
 }
 
 function markCompleted(i) {
-    tasks[i].completed = !tasks[i].completed; 
+    tasks[i].completed = !tasks[i].completed;
     showData(tasks);
 }
 
+
+/*
+    - Search Function
+*/
 search.addEventListener("input", function (e) {
     str = e.target.value;
     searchByTitle(str)
-    
+
 })
 
 function searchByTitle(str) {
     console.log(str);
-    
+
     var searched = []
-    for(var i=0; i<tasks.length; i++)
-    {
-        if(tasks[i].head.toLowerCase().includes(str.toLowerCase())==true) {
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].head.toLowerCase().includes(str.toLowerCase()) == true) {
             searched.push(tasks[i])
         }
     }
 
     console.log(searched);
-    
+
 
     showData(searched)
+}
+
+
+
+/*
+    - Validation
+*/
+function validateTaskTitle() {
+    var regex = /^[A-Z]+[a-z]{1,6}$/
+    if (regex.test(title.value) == true) {
+        document.getElementById("wrongTitle").classList.add("d-none")
+        title.style.border = ""
+        return true
+    } else {
+        document.getElementById("wrongTitle").classList.remove("d-none")
+        title.style.border = "5px solid red"
+        return false
+    }
+}
+
+function validateTaskDesc() {
+    var regex = /^[A-Z]+[a-z]{6,}/
+    if(regex.test(text.value) == true){
+        document.getElementById("wrongDesc").classList.add("d-none")
+        text.style.border = ""
+        return true
+    }else {
+        document.getElementById("wrongDesc").classList.remove("d-none")
+        text.style.border = "5px solid red"
+        return false
+    }
 }
